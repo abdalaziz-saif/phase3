@@ -10,14 +10,13 @@ class Product(models.Model):
     image = models.ImageField(upload_to='product_images/')
     quantity = models.PositiveIntegerField(default=0)
     details= models.CharField(max_length=255)
-    comment = models.CharField(max_length=100)
+    comment = models.TextField(),
     def _str_(self):
         return str (self.name)
 
 class CartItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
-    date = models.PositiveIntegerField(default=0) 
     total=models.PositiveIntegerField(default=0)
     def get_total_price(self):
         return self.quantity * self.product.price
