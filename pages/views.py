@@ -19,17 +19,17 @@ def add_to_cart(request):
         cart_item.quantity += quantity
         cart_item.save()
 
-        return JsonResponse({'message': 'Product added to cart!', 'cart_item_count': cart_item.quantity})
-    return JsonResponse({'error': 'Invalid request'})
+#         return JsonResponse({'message': 'Product added to cart!', 'cart_item_count': cart_item.quantity})
+#     return JsonResponse({'error': 'Invalid request'})
 
-def cart_details(request):
-    cart_items = CartItem.objects.all()
-    total_price = sum(item.get_total_price() for item in cart_items)
-    return render(request, 'shop/cart.html', {'cart_items': cart_items, 'total_price': total_price})
+# def cart_details(request):
+#     cart_items = CartItem.objects.all()
+#     total_price = sum(item.get_total_price() for item in cart_items)
+#     return render(request, 'shop/cart.html', {'cart_items': cart_items, 'total_price': total_price})
 
-def remove_from_cart(request):
-    if request.method == "POST":
-        cart_item_id = request.POST.get('cart_item_id')
-        CartItem.objects.get(id=cart_item_id).delete()
-        return JsonResponse({'message': 'Item removed from cart!'})
-    return JsonResponse({'error': 'Invalid request'})
+# def remove_from_cart(request):
+#     if request.method == "POST":
+#         cart_item_id = request.POST.get('cart_item_id')
+#         CartItem.objects.get(id=cart_item_id).delete()
+#         return JsonResponse({'message': 'Item removed from cart!'})
+#     return JsonResponse({'error': 'Invalid request'})
