@@ -1,0 +1,207 @@
+body{
+    margin: 0;
+}
+header{
+background-color: white;
+padding: 7px;
+ padding-left: 10%; 
+
+}
+.nav{
+
+display: flex;
+
+
+
+}
+.nav .logo{
+    margin-right: 55px;
+    margin: 2px 4px 0px 14px;
+
+ 
+
+}
+.nav .logo {
+    font-style: oblique;
+}
+.nav .logo span{
+
+    font-weight: 100;
+    color:gray ;
+}
+
+.nav ul li{
+ list-style-type: none;
+ display: inline;
+ /* margin-left: 15px; */
+ padding: 20px 10px 20px 0px;
+ margin: 0px 4px 0px 14px;
+
+}
+
+
+.nav ul li a{
+
+text-decoration: none;
+color: black;
+padding: 5px 0px;
+font-size: 15px;
+font-family:'Segoe UI';
+font-weight: 500;
+color:#333;
+
+}
+.dropdown {
+    display: inline-block;
+    position: relative;
+  }
+  .dropdown-options {
+    display: none;
+  position: absolute;
+  min-width: 200px;
+  z-index: 1;
+  background-color: white;
+  padding:10px;
+  }
+  .dropdown-options a{
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+  padding:20px 40px;
+  
+  }
+  .dropdown-options a:hover {
+    color: #0a0a23;
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover .dropdown-options {
+    display: block;
+  }
+
+.nav .rightlist{
+display: flex;
+
+margin-left: 35%;
+margin-top: 15px;
+
+}
+.nav .rightlist div{
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+}
+.nav .rightlist a{
+    padding:0px 21px;
+}
+.nav .rightlist a img{
+    width:20px;
+    height: 20px;
+}
+
+.homepage .mainimage{
+
+width: 100%;
+height: 600px;
+background-color: aquamarine;
+}
+.homepage img{
+
+width: 100%;
+height: 600px;
+}
+
+.homepage .category{
+
+    display: flex;
+    justify-content:space-around;
+    padding-top: 80px;
+    padding-bottom: 50px;
+}
+
+.homepage .category div{
+
+border: 1px black solid;
+width: 368.4px;
+height: 248.363px;
+
+
+}
+.category div{
+    position: relative;
+    overflow:hidden;
+}
+.category div a{
+
+    font-size: 31px;
+    text-decoration: none;
+    color: black;
+    position: absolute;
+    z-index: 99999999;
+    top: 0%;
+    padding: 5%;
+    font-weight: 600;
+
+
+}
+
+.category div img{
+width:225px;
+    height: 240px;
+    position: absolute;
+    left:130px;
+    z-index: -1;
+  
+}
+
+
+
+
+footer{
+
+height: 129px;
+width: 100%;
+
+background: #222;
+display: flex;
+color: #b2b2b2;
+justify-content: space-around;
+
+align-items: center;
+
+
+}
+footer .logo{
+    margin-right: 55px;
+    margin: 2px 4px 0px 14px;
+    font-style: oblique;
+color: white;
+ 
+
+}
+
+footer .logo span{
+
+    font-weight: 100;
+    color:gray ;
+}
+footer .social a{
+    
+    padding-right: 5px;
+    padding-left: 5px;
+}
+footer .social a img{
+    width:25px;
+    height: 25px;
+    
+
+}
+footer .rights span{
+
+    color: #007bff;
+}
+footer .rights{
+
+    font-size: 16px;
+}
+

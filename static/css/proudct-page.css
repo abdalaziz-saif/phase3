@@ -1,0 +1,185 @@
+body{
+    margin: 0;
+}
+/* Header styling */
+ 
+.page-title{
+    margin-left: 20px;
+    color: gray;
+    font-size: 20px;
+}
+header {
+    background-color: white;
+    padding: 7px;
+    padding-left: 10%;
+    border-bottom: .5px solid lightgray;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav .logo {
+    margin: 2px 4px 0px 14px;
+    font-style: oblique;
+}
+
+.nav .logo span {
+    font-weight: 100;
+    color: gray;
+}
+
+/* Navigation menu styling */
+.nav ul li {
+    list-style-type: none;
+    display: inline;
+    padding: 20px 10px 20px 0px;
+    margin: 0px 4px 0px 14px;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 0px;
+    font-size: 15px;
+    font-family: 'Segoe UI';
+    font-weight: 500;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    min-width: 200px;
+    z-index: 1;
+    background-color: white;
+    padding: 10px;
+}
+
+.dropdown-options a {
+    display: block;
+    color: #000000;
+    padding: 20px 40px;
+    text-decoration: none;
+}
+
+.dropdown-options a:hover {
+    color: #0a0a23;
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-options {
+    display: block;
+}
+
+/* Right-side icons */
+.nav .rightlist {
+    display: flex;
+    margin-left: 35%;
+    margin-top: 15px;
+}
+
+.nav .rightlist div {
+    border-left: 1px solid #e5e5e5;
+    border-right: 1px solid #e5e5e5;
+}
+
+.nav .rightlist a {
+    padding: 0px 21px;
+}
+
+.nav .rightlist a img {
+    width: 20px;
+    height: 20px;
+}
+
+/* Main product grid styling */
+a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    /* تعديل لتوزيع العناصر بشكل متساوي */
+    padding: 20px;
+}
+
+.product-card {
+    width: 22%;
+    /* عرض البطاقة 22% من العرض الكلي للمساحة بحيث يمكن وضع 4 عناصر في كل صف */
+    height: auto;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    width: 80%;
+    height: 180px;
+    border-radius: 8px;
+}
+
+.product-card h3 {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+.product-card p {
+    margin: 5px 0;
+}
+
+.product-card .price {
+    font-size: 1.1em;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Footer styling */
+footer {
+    height: 129px;
+    width: 100%;
+    background: #222;
+    display: flex;
+    color: #b2b2b2;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .logo {
+    font-style: oblique;
+    color: white;
+}
+
+footer .logo span {
+    font-weight: 100;
+    color: gray;
+}
+
+footer .social a {
+    padding: 0 5px;
+}
+
+footer .social a img {
+    width: 25px;
+    height: 25px;
+}
+
+footer .rights {
+    font-size: 16px;
+}
+
+footer .rights span {
+    color: #007bff;
+}

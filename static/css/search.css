@@ -1,0 +1,254 @@
+
+
+body {
+ margin: 0;
+}
+
+ 
+.page-title{
+    margin-left: 20px;
+    color: gray;
+    font-size: 20px;
+}
+
+header{
+    background-color: white;
+    padding: 7px;
+     padding-left: 10%; 
+     border-bottom: .5px solid lightgray;
+    
+    }
+    .nav{
+    
+    display: flex;
+    
+    
+    
+    }
+    .nav .logo{
+        margin-right: 55px;
+        margin: 2px 4px 0px 14px;
+    
+     
+    
+    }
+    .nav .logo {
+        font-style: oblique;
+    }
+    .nav .logo span{
+    
+        font-weight: 100;
+        color:gray ;
+    }
+    
+    .nav ul li{
+     list-style-type: none;
+     display: inline;
+     /* margin-left: 15px; */
+     padding: 20px 10px 20px 0px;
+     margin: 0px 4px 0px 14px;
+    
+    }
+    
+    
+    .nav ul li a{
+    
+    text-decoration: none;
+    color: black;
+    padding: 5px 0px;
+    font-size: 15px;
+    font-family: 'Segoe UI';
+    font-weight: 500;
+    color:#333;
+    
+    }
+    .dropdown {
+        display: inline-block;
+        position: relative;
+      }
+      .dropdown-options {
+        display: none;
+      position: absolute;
+      min-width: 200px;
+      z-index: 1;
+      background-color: white;
+      padding:10px;
+      }
+      .dropdown-options a{
+      display: block;
+      color: #000000;
+      padding: 5px;
+      text-decoration: none;
+      padding:20px 40px;
+      
+      }
+      .dropdown-options a:hover {
+        color: #0a0a23;
+        background-color: #ddd;
+      }
+      
+      .dropdown:hover .dropdown-options {
+        display: block;
+      }
+    
+    .nav .rightlist{
+    display: flex;
+    
+    margin-left: 35%;
+    margin-top: 15px;
+    
+    }
+    .nav .rightlist div{
+        border-left: 1px solid #e5e5e5;
+        border-right: 1px solid #e5e5e5;
+    }
+    .nav .rightlist a{
+        padding:0px 21px;
+    }
+    .nav .rightlist a img{
+        width:20px;
+        height: 20px;
+    }
+    .bar {
+       
+        /* margin-top: 20px; */
+         
+        
+    }
+    form{
+ text-align: center;
+    }
+
+    .bar input {
+        margin-top: 23px;
+        font-size: 18px;
+        margin-bottom: 10px;
+        border-radius: 7px;
+        padding: 15px 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+        width: 350px;
+        border:0;
+    }
+    .bar button {
+        width: 90px; 
+        height: 47px; 
+        background-color: #000307;
+        color: white;
+        border: none;
+        border-radius: 7px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+    }
+    
+    .bar button:hover {
+        background-color: #f0be34;
+    }
+    .filter-title{
+        color:#333;
+    }
+    
+    .bar .filter {
+        margin-top: 5px;
+        padding: 15px;
+        font-size: 14px;
+        border:.5px solid lightgray;
+        border-radius: 4px;
+        background-color: #fff;
+        cursor: pointer;
+        width:220px;
+        
+        /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); */
+    }
+    
+    .bar .filter:hover {
+        border-color: #007bff;
+    }
+   .bar .results { 
+        display: flex; 
+        flex-direction: row; 
+        margin: 15px;
+        flex-wrap: wrap;
+         
+    } 
+     
+   .bar .results .product { 
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        margin: 10px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        padding: 10px; 
+        width: 250px; 
+        height: 250px; 
+        background-color: #f9f9f9; 
+    
+    } 
+     
+    .product:hover { 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    } 
+     
+    .product img { 
+        width: 180px; 
+        height:180px;
+        border-radius: 5px; 
+         
+    } 
+     
+    .product-info { 
+        text-align: center; 
+    } 
+     
+    .product-info h3 { 
+        font-size: 16px; 
+        margin: 5px 0; 
+    } 
+     
+    .product-info p { 
+        font-size: 14px; 
+        color: #333; 
+    }
+    
+    
+
+/* Footer styling */
+footer {
+    height: 129px;
+    width: 100%;
+    background: #222;
+    display: flex;
+    color: #b2b2b2;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer .logo {
+    font-style: oblique;
+    color: white;
+}
+
+footer .logo span {
+    font-weight: 100;
+    color: gray;
+}
+
+footer .social a {
+    padding: 0 5px;
+}
+
+footer .social a img {
+    width: 25px;
+    height: 25px;
+}
+
+footer .rights {
+    font-size: 16px;
+}
+
+footer .rights span {
+    color: #007bff;
+}
