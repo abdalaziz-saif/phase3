@@ -11,6 +11,8 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=0)
     details= models.CharField(max_length=255)
     comment = models.TextField(),
+    category = models.CharField(max_length=100, null=True, blank=True)
+
     def _str_(self):
         return str (self.name)
 
