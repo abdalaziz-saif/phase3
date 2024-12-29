@@ -1,4 +1,124 @@
 {%load static%}
-<link rel="stylesheet" href="{%static/css/login.css}">
 
-<h3>hello to login page</h3>
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Log In | Tech store</title>
+    
+        
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+<div class="login-page">
+<div class="login-header ">
+
+    <header>Log In</header>
+</div>
+<p id="message" class = "message2"></p>
+<form name="form" onsubmit="validate(event)">
+<div class="input-box ">
+   
+    <input type="text" id="username" class="input-field" placeholder="name" name = "name" />
+    <span  class = "display" id="error"></span>
+</div>
+    
+
+<div class="input-box">
+    <input type="password" id ="password"class="input-field" placeholder="password" name = "password">
+    <span  class = "display" id="errorpas"></span>
+</div>
+  
+
+<div class="remember">
+<input type="checkbox" id="rememberme">
+<label for="rememberme">Remember Me   </label>
+</div>
+
+<div class="submit">
+
+<button type="submit" class="submitt" id="submit2"></button>
+
+     <label for="submit2">Sign In</label> 
+
+</div>
+</form>
+
+<div class="sign-up">
+<p>You don't have account ? <a href="#">Sign Up</a>  </p>
+</div>
+
+    <a class = "back" href="home.html">Bak To Home</a>
+
+
+
+</div>
+<script>
+  function validate(e) {
+    console.log("here");
+    e.preventDefault();
+
+    var isvalid = true;
+    let name = document.forms["form"]["name"].value;
+    let pass = document.forms["form"]["password"].value;
+
+    document.getElementById("error").innerHTML = "";
+    document.getElementById("errorpas").innerHTML = "";
+
+    if (name === "") {
+        document.getElementById("error").innerHTML = "Name can't be empty";
+        console.log("empty");
+        isvalid = false;
+    } else if (name.length < 5) {
+        document.getElementById("error").innerHTML = "Name can't be less than 5 characters";
+        isvalid = false;
+    }
+
+    if (pass === "") {
+        document.getElementById("errorpas").innerHTML = "Password can't be empty";
+        isvalid = false;
+    } else if (pass.length < 7) {
+        document.getElementById("errorpas").innerHTML = "Password can't be less than 7 characters";
+        isvalid = false;
+    }
+
+    // Error message style
+    if (isvalid === false) {
+        document.getElementById("error").classList.add("display-block");
+        document.getElementById("errorpas").classList.add("display-block");
+    } else {
+      
+        fetch(`/check-user/?username=${name}&password=${pass}`)
+        .then(response =>  response.json() )
+            .then(data => {
+                const messageElem = document.getElementById('message');
+                messageElem.textContent = data.message;
+                console.log(data.message);
+            
+
+                if (!data.exists) {
+                    console.log("her2")
+                    // Submit the form (AJAX or traditional submission)
+                    const messageElem = document.getElementById('message');
+                        messageElem.textContent = data.message;
+                        console.log(data.message);
+        
+
+                }
+                else     window.location.href = "/history.html"; //remember to modify it  
+            })
+
+            .catch(error => { console.error('Fetch error:', error); document.getElementById('message').textContent = "Error: Unable to check user.";
+            });
+            
+    }
+    return isvalid;
+}
+
+</script>
+<!-- <script src="{% static 'js/login.js' %}"></script> -->
+</body>
+
+</html>

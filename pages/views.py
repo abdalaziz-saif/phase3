@@ -1,7 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product, CartItem
- 
+from .models import Product, CartItem 
+
+from django.http import JsonResponse
+from .models import User
+
+def check_user_exists(request):
+    username = request.GET.get('username')
+    password = request.GET.get('password') 
+
+    if not username or not password: 
+        return JsonResponse({'exists': False, 'message': 'Username and password are required!'}) 
+    user = User.objects.filter(username=username, password=password).first() 
+    
+    if user and password: 
+     return JsonResponse({'exists': True, 'message': 'User exists!'}) 
+    else: 
+     return JsonResponse({'exists': False, 'message': 'User does not exist, you can proceed!'})
+
+
+
+
+
 def login(request):
     return render(request,'pages/login.html',{'name':'ahmed'})
  

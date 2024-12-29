@@ -5,12 +5,13 @@ from . import views
 # add_to_cart,
 # cart_details,
 # remove_from_cart,
-
+from .views import check_user_exists
 
 
 
 urlpatterns = [
     path('login/',views.login, name='login'),
+    path('check-user/', check_user_exists, name='check_user_exists'),
 #     path('', product_list, name='product_list'),
 #     path('add-to-cart/', add_to_cart, name='add_to_cart'),
 #     path('cart/', cart_details , name='cart_details'),
