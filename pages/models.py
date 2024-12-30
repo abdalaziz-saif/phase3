@@ -12,13 +12,19 @@ class User(models.Model):
         return self.username
 
 class Product(models.Model):
+    x=[
+
+   ('phone','phone'),   
+   ('laptop','laptop'),   
+   ('accessories','accessories'),   
+]
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='product_images/')
     quantity = models.PositiveIntegerField(default=0)
     details= models.CharField(max_length=255)
     comment = models.TextField(),
-    category = models.CharField(max_length=100, null=True, blank=True)
+    category = models.CharField(max_length=100, null=True, blank=True , choices=x)
 
     def _str_(self):
         return str (self.name)
