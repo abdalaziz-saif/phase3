@@ -19,7 +19,11 @@ def check_user_exists(request):
      return JsonResponse({'exists': False, 'message': 'User does not exist, you can proceed!'})
 
 
+def home(request):
+   return render(request,'pages/home.html')
 
+def index(request):
+   return render(request,'pages/index.html')
 
 
 def login(request):

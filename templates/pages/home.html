@@ -1,0 +1,109 @@
+{%load static%}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>computer home </title>
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+</head>
+<body>
+<header>
+<div class="nav">
+    <!-- <img class ="logo" src="images/logo-color.png" alt="logo"> -->
+     <h1 class = "logo">Tech <span>store</span></h1>
+<ul>
+<li><a href="home.html">Home</a></li>
+
+<li class="dropdown">Collection
+
+    <div class="dropdown-options">
+        <a href="proudct-page.html">Laptop</a>
+        <a href="proudct-page.html">Phone</a>
+        <a href="proudct-page.html">accessories</a>
+      </div>
+</li>
+<li><a href="history.html">History</a></li>
+<li><a href="login.html">Sign in</a></li>
+
+</ul>
+<div class="rightlist">
+<div>
+    <a href="search.html"><img src="{% static 'images/icons/search.png' %}" alt=""></a>
+</div>    
+<div>
+    <a href="cart.html"><img src="{% static 'images/icons/shopping-cart.png' %}" alt=""></a>
+</div>
+
+
+</div>
+
+
+</div>
+</header>
+<div class="homepage">
+    
+    <div class="mainimage">
+        
+        <img src="{%static 'images/E-commerce website slider.jpeg'%}" alt="mainimage">
+        
+        
+        
+    </div>
+    
+    
+    <div class="category">
+       
+        <div> 
+            <a href="proudct-page.html"> laptop
+                <img src="{%static 'images/MacBook Air 13 (2018-2019) Skins - Custom _ Body + Keyboard Surround.jpeg'%}" alt="mainimage"> 
+            
+        </a>
+        </div>
+        <div>
+            <a href="proudct-page.html"> phones
+            <img src="{%static 'images/iphone 16 image.jpeg'%}" alt="mainimage"> 
+           
+           
+        </a>
+        </div>
+        <div>
+            <a href="proudct-page.html">accessories
+                <img src="{%static 'images/Apple AirPods Max - Silver.jpeg'%}" alt="mainimage"> 
+           
+           
+        </a>
+        </div>
+        
+    </div>
+    
+</div>
+    
+ <footer>
+    <div class="footerlogo">
+        <h1 class = "logo">Tech <span>store</span></h1>
+    </div>
+
+    <div class="rights">
+        <p>Copyright &#169;2024 All rights reserved | This template is made with &#x2661;  by <span>web team</span></p>
+    </div>
+
+    <div class="social">
+        <a href="http://facebook.com" target="_blank"> <img src="{% static 'images/icons/icons8-facebook-50.png' %}" alt="Facebook Icon"> </a> 
+        <a href="http://snapchat.com" target="_blank"> <img src="{% static 'images/icons/icons8-snapchat-50.png' %}" alt="Snapchat Icon"> </a> 
+        <a href="http://instagram.com" target="_blank"> <img src="{% static 'images/icons/icons8-instagram-50.png' %}" alt="Instagram Icon"> </a> 
+        <a href="http://twitter.com" target="_blank"> <img src="{% static 'images/icons/icons8-twitter-50.png' %}" alt="Twitter Icon"> </a>
+
+    </div>
+
+
+ </footer>   
+    
+
+</body>
+
+
+</html>

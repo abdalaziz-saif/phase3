@@ -10,8 +10,11 @@ from .views import check_user_exists
 
 
 urlpatterns = [
+    path('' ,views.index, name='index'),
+    path('home/' ,views.home, name='home'),
     path('login/',views.login, name='login'),
     path('check-user/', check_user_exists, name='check_user_exists'),
+
 #     path('', product_list, name='product_list'),
 #     path('add-to-cart/', add_to_cart, name='add_to_cart'),
 #     path('cart/', cart_details , name='cart_details'),

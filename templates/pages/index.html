@@ -1,0 +1,57 @@
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+   <script src="{% static 'js/script.js' %}"></script>
+
+
+</head>
+
+<body>
+  <h1>Choose Your Project</h1>
+
+  <a href="{% url 'home' %}"target="_blank">E-Commerce Website</a>
+  <a href="#" class="project-link" data-project="projects/realestate.html">Real Estate Listing Site</a>
+  <a href="#" class="project-link" data-project="projects/recipes.html">Recipe Sharing Website</a>
+  <a href="#" class="project-link" data-project="projects/blog.html">Blog Platform</a>
+
+
+  <!-- Section to display project content -->
+  <div id="main-content">
+    <p>Select a project to load its content here.</p>
+  </div>
+  <!-- <a href="realestate.html" target="_blank" onclick="return false;">Real Estate Listing Site</a>
+  <a href="recipes.html" target="_blank" onclick="return false;">Recipe Sharing Website</a>
+  <a href="blog.html" target="_blank" onclick="return false;">Blog Platform</a> -->
+</body>
+
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homepage</title>
+  <link rel="stylesheet" href="style1.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <h1>Choose Your Project</h1>
+  <ul>
+    <li><a href="#" class="project-link" data-project="projects/ecommerce.html">E-Commerce Website</a></li>
+    <li><a href="#" class="project-link" data-project="projects/realestate.html">Real Estate Listing Site</a></li>
+    <li><a href="#" class="project-link" data-project="projects/recipes.html">Recipe Sharing Website</a></li>
+    <li><a href="#" class="project-link" data-project="projects/blog.html">Blog Platform</a></li>
