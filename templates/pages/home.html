@@ -19,15 +19,15 @@
 <li><a href="home.html">Home</a></li>
 
 <li class="dropdown">Collection
-
     <div class="dropdown-options">
-        <a href="proudct-page.html">Laptop</a>
-        <a href="proudct-page.html">Phone</a>
-        <a href="proudct-page.html">accessories</a>
-      </div>
+        {% for category in categories %}
+            <a href="{% url 'category' category.name %}">{{ category.name }}</a>
+        {% endfor %}    
+    </div>
 </li>
+
 <li><a href="history.html">History</a></li>
-<li><a href="login.html">Sign in</a></li>
+<li><a href="{%url 'login'%}">Sign in</a></li>
 
 </ul>
 <div class="rightlist">

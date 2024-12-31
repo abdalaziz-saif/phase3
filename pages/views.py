@@ -1,9 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Product, CartItem 
-
+from django.shortcuts import get_object_or_404
+from .models import Category
+from django.shortcuts import redirect
+from django.contrib import messages
 from django.http import JsonResponse
 from .models import User
+
+
+def category(request,cat):
+    try:
+        category=get_object_or_404(Category, name=cat)
+        products=Product.objects.filter(category=category)
+        
+        return render(request,'pages/category.html',{'products':products , 'category':category })
+    except:
+           messages.success(request , ("This category deos Note exist"))
+           return redirect('home')
+
+
+
+
 
 def check_user_exists(request):
     username = request.GET.get('username')

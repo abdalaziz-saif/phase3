@@ -14,6 +14,7 @@ urlpatterns = [
     path('home/' ,views.home, name='home'),
     path('login/',views.login, name='login'),
     path('check-user/', check_user_exists, name='check_user_exists'),
+    path("category/<str:cat>",views.category, name='category'),
 
 #     path('', product_list, name='product_list'),
 #     path('add-to-cart/', add_to_cart, name='add_to_cart'),

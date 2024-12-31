@@ -11,20 +11,23 @@ class User(models.Model):
     def __str__(self):
         return self.username
 
-class Product(models.Model):
-    x=[
+class Category (models.Model):
+    name= models.CharField(max_length=50)
 
-   ('phone','phone'),   
-   ('laptop','laptop'),   
-   ('accessories','accessories'),   
-]
+    def __str__(self):
+        return self.name
+
+
+
+class Product(models.Model):
+
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='product_images/')
     quantity = models.PositiveIntegerField(default=0)
     details= models.CharField(max_length=255)
     comment = models.TextField(),
-    category = models.CharField(max_length=100, null=True, blank=True , choices=x)
+    category=models.ForeignKey(Category,on_delete=models.CASCADE ,null=True)
 
     def _str_(self):
      return str (self.name)
