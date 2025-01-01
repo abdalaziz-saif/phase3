@@ -55,15 +55,15 @@ color:#333;
     display: inline-block;
     position: relative;
   }
-  .dropdown-options {
+.dropdown-options {
     display: none;
   position: absolute;
   min-width: 200px;
   z-index: 1;
   background-color: white;
   padding:10px;
-  }
-  .dropdown-options a{
+}
+.dropdown-options a{
   display: block;
   color: #000000;
   padding: 5px;
@@ -71,12 +71,12 @@ color:#333;
   padding:20px 40px;
   
   }
-  .dropdown-options a:hover {
+.dropdown-options a:hover {
     color: #0a0a23;
     background-color: #ddd;
   }
   
-  .dropdown:hover .dropdown-options {
+.dropdown:hover .dropdown-options {
     display: block;
   }
 
@@ -98,6 +98,7 @@ margin-top: 15px;
     width:20px;
     height: 20px;
 }
+/*
 
 .homepage .mainimage{
 
@@ -204,4 +205,4 @@ footer .rights{
 
     font-size: 16px;
 }
-
+ */
