@@ -7,7 +7,7 @@
     <meta charset="UTF-8"/>
     <title>computer home </title>
 
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hom.css' %}">
 
 </head>
 <body>
@@ -58,20 +58,18 @@
     <div class="category">
        
         <div> 
-            <a href="proudct-page.html"> laptop
+            <a href="{% url 'category' 'laptop' %}"> laptop
                 <img src="{%static 'images/MacBook Air 13 (2018-2019) Skins - Custom _ Body + Keyboard Surround.jpeg'%}" alt="mainimage"> 
             
         </a>
         </div>
         <div>
-            <a href="proudct-page.html"> phones
-            <img src="{%static 'images/iphone 16 image.jpeg'%}" alt="mainimage"> 
-           
-           
-        </a>
+            <a href="{% url 'category' 'phone' %}">phones</a>
+            <img src="{% static 'images/16.jpeg' %}" alt="mainimage">
         </div>
+        
         <div>
-            <a href="proudct-page.html">accessories
+            <a href="{% url 'category' 'accessories' %}">accessories
                 <img src="{%static 'images/Apple AirPods Max - Silver.jpeg'%}" alt="mainimage"> 
            
            

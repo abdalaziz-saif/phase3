@@ -15,7 +15,7 @@ urlpatterns = [
     path('login/',views.login, name='login'),
     path('check-user/', check_user_exists, name='check_user_exists'),
     path("category/<str:cat>",views.category, name='category'),
-path('product/<int:product_id>/', views.product_detail, name='product_detail'),
+    path('product/<int:product_id>/', views.product_detail, name='product_detail'),
 #path('history/', views.history, name='history'),
 
 #path('product/<int:product_id>/', views.product_detail, name='product_detail'),
