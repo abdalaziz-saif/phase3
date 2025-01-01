@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from .models import Product, CartItem 
 from django.shortcuts import get_object_or_404
@@ -60,6 +60,14 @@ def add_to_cart(request):
         cart_item, created = CartItem.objects.get_or_create(product=product)
         cart_item.quantity += quantity
         cart_item.save()
+
+
+def product_detail(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+    return render(request, 'pages/single_product.html', {'product': product})
+
+def history(request):
+    return render(request, 'pages/history.html')
 
 #         return JsonResponse({'message': 'Product added to cart!', 'cart_item_count': cart_item.quantity})
 #     return JsonResponse({'error': 'Invalid request'})

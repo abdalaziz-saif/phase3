@@ -15,17 +15,14 @@ urlpatterns = [
     path('login/',views.login, name='login'),
     path('check-user/', check_user_exists, name='check_user_exists'),
     path("category/<str:cat>",views.category, name='category'),
+path('product/<int:product_id>/', views.product_detail, name='product_detail'),
+#path('history/', views.history, name='history'),
+
+#path('product/<int:product_id>/', views.product_detail, name='product_detail'),
+
 
 #     path('', product_list, name='product_list'),
 #     path('add-to-cart/', add_to_cart, name='add_to_cart'),
 #     path('cart/', cart_details , name='cart_details'),
 #     path('remove-from-cart/', remove_from_cart, name='remove_from_cart'),
 ]
-
-
-   
-       
-
-
-
-

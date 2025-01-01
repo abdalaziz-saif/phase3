@@ -17,7 +17,10 @@
     <ul>
         {% for product in products %}
         <li>
-            <h2>{{ product.name }}</h2>
+
+            <a href="{% url 'product_detail' product.id %}">
+                <h2>{{ product.name }}</h2>
+            </a>
             <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
             <p>Price: ${{ product.price }}</p>
         </li>
