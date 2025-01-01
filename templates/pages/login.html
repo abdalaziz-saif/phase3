@@ -50,7 +50,7 @@
 <p>You don't have account ? <a href="#">Sign Up</a>  </p>
 </div>
 
-    <a class = "back" href="home.html">Bak To Home</a>
+    <a class = "back" href="{%url 'home'%}">Bak To Home</a>
 
 
 
@@ -107,7 +107,7 @@
         
 
                 }
-                else     window.location.href = "/history.html"; //remember to modify it  
+                else     window.location.href = "{%url 'home'%}"; //remember to modify it  
             })
 
             .catch(error => { console.error('Fetch error:', error); document.getElementById('message').textContent = "Error: Unable to check user.";

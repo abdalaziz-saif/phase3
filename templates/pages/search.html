@@ -1,15 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ category.name }} - Products</title>
-    <link rel="stylesheet" href="{% static 'css/pro.css' %}">
+    <title>Search Products</title>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
 </head>
-
 <body>
+
     <header>
         <div class="nav">
             <!-- <img class ="logo" src="images/logo-color.png" alt="logo"> -->
@@ -46,32 +44,48 @@
         
         </div>
         </header>
-        <main>
-            <p class ="page-title">Home >  Collection</p>
-            <h1>Products in {{ category.name }}</h1>
-            <div class="product-grid">
+<section>
+    <p class="page-title">Home > Search</p>
+    <div class="bar">
+        <form method="GET" action="{% url 'search' %}">
+            <input type="text" name="query" placeholder="Search...">
+            <button type="submit">Search</button>
+            <br/>
+    <br>
+    <br>
+    <div class="bar">
+        <form>
+           
+         <br/>
+          
+        </form>
 
-    
-
-    {% if products %}
-  
-        {% for product in products %}
-        <div class="product-card">
-            <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200">
-            <a href="{% url 'product_detail' product.id %}">
-                <h2>{{ product.name }}</h2>
-            </a>          
-         
-            <p>Price: ${{ product.price }}</p>
+        <p class="page-title">Search Results</p>
+        {% if results %}
+            <div class="results">
+                {% for product in results %}
+                    <div class="product">
+                        <div class="image-container"> <!-- New container for the image -->
+                            <a href="{% url 'product_detail' product.id %}">
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}">
+                            </a>
+                            
+                        </div>
+                        <div class="product-info">
+                            <h3>{{ product.name }}</h3>
+                            <p>Price: ${{ product.price }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
- 
-        {% endfor %}
+        {% else %}
+            <p>No results found. Please try again.</p>
+        {% endif %}
+    </section>
+                   
+           
 
-    <!-- {% else %}
-    <p>No products available in this category.</p> -->
-    {% endif %}
-</div>
-</main>
+</section>
 <footer>
     <div class="footerlogo">
         <h1 class = "logo">Tech <span>store</span></h1>
@@ -91,6 +105,5 @@
 
 
  </footer>   
-</body>
-
+</body> 
 </html>

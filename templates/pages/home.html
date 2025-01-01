@@ -20,9 +20,12 @@
 
 <li class="dropdown">Collection
     <div class="dropdown-options">
-        {% for category in categories %}
-            <a href="{% url 'category' category.name %}">{{ category.name }}</a>
-        {% endfor %}    
+        <div class="dropdown-options">
+            <a href="{% url 'category' 'laptop' %}">Laptop</a>
+            <a href="{% url 'category' 'phone' %}">Phone</a>
+            <a href="{% url 'category' 'accessories' %}">accessories</a>
+          </div>
+   
     </div>
 </li>
 
@@ -32,7 +35,7 @@
 </ul>
 <div class="rightlist">
 <div>
-    <a href="search.html"><img src="{% static 'images/icons/search.png' %}" alt=""></a>
+    <a href="{%url 'search'%}"><img src="{% static 'images/icons/search.png' %}" alt=""></a>
 </div>    
 <div>
     <a href="cart.html"><img src="{% static 'images/icons/shopping-cart.png' %}" alt=""></a>

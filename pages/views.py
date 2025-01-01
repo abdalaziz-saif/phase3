@@ -12,6 +12,7 @@ from .models import User
 def category(request,cat):
     try:
         category=get_object_or_404(Category, name=cat)
+
         products=Product.objects.filter(category=category)
         
         return render(request,'pages/category.html',{'products':products , 'category':category })
@@ -69,17 +70,19 @@ def product_detail(request, product_id):
 def history(request):
     return render(request, 'pages/history.html')
 
-#         return JsonResponse({'message': 'Product added to cart!', 'cart_item_count': cart_item.quantity})
-#     return JsonResponse({'error': 'Invalid request'})
-
-# def cart_details(request):
-#     cart_items = CartItem.objects.all()
-#     total_price = sum(item.get_total_price() for item in cart_items)
-#     return render(request, 'shop/cart.html', {'cart_items': cart_items, 'total_price': total_price})
-
-# def remove_from_cart(request):
-#     if request.method == "POST":
-#         cart_item_id = request.POST.get('cart_item_id')
-#         CartItem.objects.get(id=cart_item_id).delete()
-#         return JsonResponse({'message': 'Item removed from cart!'})
-#     return JsonResponse({'error': 'Invalid request'})
+def search(request): 
+    query = request.GET.get('query', '') 
+    category = request.GET.get('category', 'all') 
+    brand = request.GET.get('brand', 'all') 
+    products = Product.objects.all() 
+ 
+    if query: 
+        products = products.filter(name__icontains=query)   
+ 
+    if category != 'all': 
+        products = products.filter(category_name_iexact=category) 
+ 
+    if brand != 'all': 
+        products = products.filter(brand_name_iexact=brand)   
+ 
+    return render(request, 'pages/search.html', {'results':products})
