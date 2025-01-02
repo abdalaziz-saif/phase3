@@ -10,5 +10,9 @@ admin.site.register(Category)
 from .models import Product 
 admin.site.register(Product)
 
+
 from .models import  CartItem
 admin.site.register(CartItem)
+
+from .models import  HistoryItem
+admin.site.register(HistoryItem)

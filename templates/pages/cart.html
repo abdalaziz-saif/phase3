@@ -1,0 +1,121 @@
+{% load static %} 
+<!DOCTYPE html> 
+
+<html lang="en">
+     <head> 
+        <meta charset="UTF-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+         <title>Your Cart</title> 
+         <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+         </head> 
+         <body> 
+            <header>
+                <div class="nav">
+                    <!-- <img class ="logo" src="images/logo-color.png" alt="logo"> -->
+                     <h1 class = "logo">Tech <span>store</span></h1>
+                <ul>
+                <li><a href="{%url 'home'%}">Home</a></li>
+                
+                <li class="dropdown">Collection
+                    <div class="dropdown-options">
+                        <div class="dropdown-options">
+                            <a href="{% url 'category' 'laptop' %}">Laptop</a>
+                            <a href="{% url 'category' 'phone' %}">Phone</a>
+                            <a href="{% url 'category' 'accessories' %}">accessories</a>
+                          </div>
+                   
+                    </div>
+                </li>
+                
+                <li><a href="history.html">History</a></li>
+                <li><a href="{%url 'login'%}">Sign in</a></li>
+                
+                </ul>
+                <div class="rightlist">
+                <div>
+                    <a href="{%url 'search'%}"><img src="{% static 'images/icons/search.png' %}" alt=""></a>
+                </div>    
+                <div>
+                    <a href="{%url 'cart'%}"><img src="{% static 'images/icons/shopping-cart.png' %}" alt=""></a>
+                </div>
+                
+                
+                </div>
+                
+                
+                </div>
+                </header>
+                      <div class="cart-container"> {% if cart_items %} 
+                        <h1>Your Shopping Cart</h1> 
+                        <table>
+                             <thead>
+                                 <tr>
+                                     <th>Product</th> 
+                                     <th>Price</th>
+                                      <th>Quantity</th> 
+                                      <th>Total</th>
+                                       <th>Actions</th> 
+                                    </tr> 
+                                </thead>
+                                 <tbody>
+                                     {% for item in cart_items %} 
+                                     <tr> 
+                                        <td>
+                                            <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" style="width: 100px; height: auto; margin-right: 10px;">
+                                
+                                       {{ item.product.name }}
+                                    </td> 
+                                        <td>${{ item.product.price }}</td> 
+                                        <td>
+                                            <form method="post" action="{% url 'update_cart_item' cart_item_id=item.id %}"> 
+                                                {% csrf_token %}
+                                                 <input type="number" name="quantity" value="{{ item.quantity }}" class="quantity-input" onchange="this.form.submit()"> 
+                                                </form>
+                                              <td>${{ item.get_total_price }}</td>
+                                               <td>
+                                                <form method="post" action="{% url 'remove_from_cart' cart_item_id=item.id %}">
+                                                     {% csrf_token %} 
+                                                     <button type="submit" class="remove-btn">Remove</button> 
+                                                    </form> 
+                                                </tr>
+                                                 {% endfor %} 
+                                            </tbody> 
+                                        </table>
+                                         <p class="total_price">Total Price: ${{ total_price }}</p>
+                                          {% else %} 
+                                          <p>Your cart is empty!</p> 
+                                          {% endif %} 
+                                        </div> 
+
+                                        <div>
+
+                                            <form  class="Checkout" method="post" action="{% url 'checkout' %}">
+                                                {% csrf_token %}
+                                                <button type="submit">Checkout</button>
+                                            </form>
+                                            
+                                        </div>
+                                        <footer>
+                                            <div class="footerlogo">
+                                                <h1 class = "logo">Tech <span>store</span></h1>
+                                            </div>
+                                        
+                                            <div class="rights">
+                                                <p>Copyright &#169;2024 All rights reserved | This template is made with &#x2661;  by <span>web team</span></p>
+                                            </div>
+                                        
+                                            <div class="social">
+                                                <a href="http://facebook.com" target="_blank"> <img src="{% static 'images/icons/icons8-facebook-50.png' %}" alt="Facebook Icon"> </a> 
+                                                <a href="http://snapchat.com" target="_blank"> <img src="{% static 'images/icons/icons8-snapchat-50.png' %}" alt="Snapchat Icon"> </a> 
+                                                <a href="http://instagram.com" target="_blank"> <img src="{% static 'images/icons/icons8-instagram-50.png' %}" alt="Instagram Icon"> </a> 
+                                                <a href="http://twitter.com" target="_blank"> <img src="{% static 'images/icons/icons8-twitter-50.png' %}" alt="Twitter Icon"> </a>
+                                        
+                                            </div>
+                                        
+                                        
+                                         </footer>   
+                                            
+                                             <!-- تضمين ملف JavaScript الخاص بـ cart.js --> 
+                                              <script src="{% static 'js/cart.js' %}"></script> 
+            </body> 
+   </html>

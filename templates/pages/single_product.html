@@ -35,7 +35,7 @@
             <a href="{%url 'search'%}"><img src="{% static 'images/icons/search.png' %}" alt=""></a>
         </div>    
         <div>
-            <a href="cart.html"><img src="{% static 'images/icons/shopping-cart.png' %}" alt=""></a>
+            <a href="{%url 'cart'%}"><img src="{% static 'images/icons/shopping-cart.png' %}" alt=""></a>
         </div>
         
         
@@ -45,95 +45,104 @@
         </div>
         </header>
 
-    <p class="page-title">Home > product details</p>
-    <br>
-    <br>
-    <div class="product-section">
-        <div class="product-details">
-            <div class="product-image">
-                <img src="{{ product.image.url }}" alt="Product Image">
-            </div>
-            <div class="product-info">
-                <h1 class="product-name">{{ product.name }}</h1>
-                <p class="product-brand">Brand: {{ product.category.name }}</p>
-                <p class="product-description">{{ product.details }}</p>
-                <p class="price">Price: ${{ product.price }}</p>
-                <p class="product-rating">Rating: &#9733;&#9733;&#9733;&#9734;&#9734;</p>
-                <button class="add-to-cart-btn" id="add-to-cart-btn">
-                    Add to Cart
-                </button>
-            </div>
-            <div class="product-comments">
-                <div class="rating">
-                    <h2>Add Rating</h2>
-                    <span class="star">&#9734;</span>
-                    <span class="star">&#9734;</span>
-                    <span class="star">&#9734;</span>
-                    <span class="star">&#9734;</span>
-                    <span class="star">&#9734;</span>
+        <p class="page-title">Home > product details</p>
+        <br>
+        <br>
+        <div class="product-section">
+            <div class="product-details">
+                <div class="product-image">
+                    <img src="{{ product.image.url }}" alt="Product Image">
                 </div>
-                <h2>Comments</h2>
-                <ul class="comments-list">
-                    {% for comment in product.comment_set.all %}
-                        <li>{{ comment.text }}</li>
-                    {% empty %}
-                        <li>No comments yet.</li>
-                    {% endfor %}
-                </ul>
-                <div class="add-comment">
-                    <input type="text" placeholder="Add your comment here" id="comment-input">
-                    <button id="add-comment-btn">Add Comment</button>
+                <div class="product-info">
+                    <h1 class="product-name">{{ product.name }}</h1>
+                    <p class="product-brand">Brand: {{ product.category.name }}</p>
+                    <p class="product-description">{{ product.details }}</p>
+                    <p class="price">Price: ${{ product.price }}</p>
+                    <p class="product-rating">Rating: &#9733;&#9733;&#9733;&#9734;&#9734;</p>
+                    <form method="post" action="{% url 'add_to_cart' product_id=product.id %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="quantity" value="1">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                    
+                    </button>
+                </div>
+                <div class="product-comments">
+                    <div class="rating">
+                        <h2>Add Rating</h2>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                        <span class="star">&#9734;</span>
+                    </div>
+                    <h2>Comments</h2>
+                    <ul class="comments-list">
+                        {% for comment in product.comment_set.all %}
+                            <li>{{ comment.text }}</li>
+                        {% empty %}
+                            <li>No comments yet.</li>
+                        {% endfor %}
+                    </ul>
+                    <div class="add-comment">
+                        <input type="text" placeholder="Add your comment here" id="comment-input">
+                        <button id="add-comment-btn">Add Comment</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <footer>
-        <div class="footerlogo">
-            <h1 class="logo">Tech <span>store</span></h1>
-        </div>
-        <div class="rights">
-            <p>Copyright &#169;2024 All rights reserved | This template is made with &#x2661; by <span>web team</span></p>
-        </div>
-        <div class="social">
-            <a href="http://facebook.com" target="_blank"><img src="{% static 'images/icons/icons8-facebook-50.png' %}" alt=""></a>
-            <a href="http://snapchat.com" target="_blank"><img src="{% static 'images/icons/icons8-snapchat-50.png' %}" alt=""></a>
-            <a href="http://instagram.com" target="_blank"><img src="{% static 'images/icons/icons8-instagram-50.png' %}" alt=""></a>
-            <a href="http://twitter.com" target="_blank"><img src="{% static 'images/icons/icons8-instagram-50.png' %}" alt=""></a>
-        </div>
-    </footer>
-
-    <script>
-        const stars = document.querySelectorAll('.rating .star');
-        stars.forEach((star, index) => {
-            star.addEventListener('click', () => {
-                stars.forEach((s, i) => {
-                    s.textContent = i <= index ? '★' : '☆'; 
+    
+        <footer>
+            <div class="footerlogo">
+                <h1 class="logo">Tech <span>store</span></h1>
+            </div>
+            <div class="rights">
+                <p>Copyright &#169;2024 All rights reserved | This template is made with &#x2661; by <span>web team</span></p>
+            </div>
+            <div class="social">
+                <a href="http://facebook.com" target="_blank"><img src="{% static 'images/icons/icons8-facebook-50.png' %}" alt=""></a>
+                <a href="http://snapchat.com" target="_blank"><img src="{% static 'images/icons/icons8-snapchat-50.png' %}" alt=""></a>
+                <a href="http://instagram.com" target="_blank"><img src="{% static 'images/icons/icons8-instagram-50.png' %}" alt=""></a>
+                <a href="http://twitter.com" target="_blank"><img src="{% static 'images/icons/icons8-instagram-50.png' %}" alt=""></a>
+            </div>
+        </footer>
+    
+        <script>
+            fetch('/add_to_cart/${product_id}/',{
+                method: 'POST',
+                headers:{X_CSRFToken: CSRFToken,}
+            })
+            const stars = document.querySelectorAll('.rating .star');
+            stars.forEach((star, index) => {
+                star.addEventListener('click', () => {
+                    stars.forEach((s, i) => {
+                        s.textContent = i <= index ? '★' : '☆'; 
+                    });
                 });
             });
-        });
-
-        const addCommentButton = document.getElementById('add-comment-btn');
-        const commentInput = document.getElementById('comment-input');
-        const commentsList = document.querySelector('.comments-list');
-
-        addCommentButton.addEventListener('click', () => {
-            const newComment = commentInput.value.trim();
-            if (newComment) {
-                const li = document.createElement('li');
-                li.textContent = newComment;
-                commentsList.appendChild(li);
-                commentInput.value = '';
-            } else {
-                alert('Please enter a comment!');
-            }
-        });
-
-        const addToCartButton = document.getElementById('add-to-cart-btn');
-        addToCartButton.addEventListener('click', () => {
-            alert('Add to Cart Success');
-        });
-    </script>
+    
+            const addCommentButton = document.getElementById('add-comment-btn');
+            const commentInput = document.getElementById('comment-input');
+            const commentsList = document.querySelector('.comments-list');
+    
+            addCommentButton.addEventListener('click', () => {
+                const newComment = commentInput.value.trim();
+                if (newComment) {
+                    const li = document.createElement('li');
+                    li.textContent = newComment;
+                    commentsList.appendChild(li);
+                    commentInput.value = '';
+                } else {
+                    alert('Please enter a comment!');
+                }
+            });
+    
+            const addToCartButton = document.getElementById('add-to-cart-btn');
+            addToCartButton.addEventListener('click', () => {
+                alert('Add to Cart Success');
+            });
+        </script>
+        <script src="{% static 'js/cart.js' %}"></script>
     <footer>
         <div class="footerlogo">
             <h1 class = "logo">Tech <span>store</span></h1>
